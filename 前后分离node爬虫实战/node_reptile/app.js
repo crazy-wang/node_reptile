@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var infoRouter = require('./routes/info');
+var jobRouter = require('./routes/job');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter); // 用的request
 app.use('/info', infoRouter); // 用的http
+app.use('/job', jobRouter);
 
 
 // error handler

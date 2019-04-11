@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
+var fs = require('fs')
 // var iconv = require('iconv-lite')
 
 /* GET users listing. */
@@ -47,6 +48,8 @@ router.get('/', function (req, res, next) {
                 jobs.push(job)
             })
             // res.send(company)
+            fs.writeFileSync('data.json', JSON.stringify(jobs)); // 存到本地
+            // fs.writeFileSync('./data/data.json', JSON.stringify(jobs)); // 存到本地data.json里。必须先有data文件夹才可以
             res.send(jobs)
             // res.json(jobs)
         }
